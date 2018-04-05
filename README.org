@@ -1,0 +1,19 @@
+* UTF8 编码手动解析
+
+** 目的
+理解 UTF-8 编码方式
+
+** 原理
+
+| Unicode               | UTF-8                      |
+|-----------------------+----------------------------|
+| 0000 0000 ~ 0000 007F | 0xxxxxxx                   |
+| 0000 0080 ~ 0000 07FF | 110xxxxx 10xxxxxx          |
+| 0000 0800 ~ 0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx |
+| 0001 0000 ~ 0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx | 
+   
+- 如果读到的字节是 0 开头，则可认为是单字节的 ASCII 码
+- 如果读到的字节是 1 开头，则需要判断有多少个 1 来决定继续读取多少个字节
+  
+** 参考资料
+- [[http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html][字符编码笔记：ASCII，Unicode 和 UTF-8]]

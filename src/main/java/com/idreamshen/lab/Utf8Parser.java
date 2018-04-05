@@ -33,9 +33,7 @@ public class Utf8Parser {
             inputStream.read(bytes);
             byte[] tmpBytes = new byte[num + 1];
             tmpBytes[0] = b;
-            for (int i = 0; i < bytes.length; i++) {
-                tmpBytes[i + 1] = bytes[i];
-            }
+            System.arraycopy(bytes, 0, tmpBytes, 1, bytes.length);
 
             print(tmpBytes);
         }
