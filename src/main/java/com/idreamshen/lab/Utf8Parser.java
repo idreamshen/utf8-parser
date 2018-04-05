@@ -1,7 +1,9 @@
 package com.idreamshen.lab;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +11,7 @@ public class Utf8Parser {
 
     public static void main(String[] args) throws IOException {
 
-        FileInputStream inputStream = new FileInputStream("/tmp/test");
+        InputStream inputStream = new ByteArrayInputStream("Hello world 世界你好".getBytes());
 
         while (inputStream.available() != 0) {
             byte b = (byte) inputStream.read();
@@ -36,7 +38,6 @@ public class Utf8Parser {
             }
 
             print(tmpBytes);
-
         }
     }
 
